@@ -1,5 +1,5 @@
 // Creo il mio array
-
+var i = 0;
 var myList = [
     "Bianchi",
     "Neri",
@@ -7,15 +7,13 @@ var myList = [
     "Gialli",
     "Verdi",
 ]
-
 console.log(myList);
 
 // Chiedo all'utente il cognome
-var cognomeUser;
 
 do {
-    cognomeUser = prompt("Inserisci il tuo cognome");
-} while (cognomeUser == 0)
+    var cognomeUser = prompt("Inserisci il tuo cognome");
+} while (cognomeUser == null || cognomeUser == 0)
 
 console.log(cognomeUser);
 
@@ -23,31 +21,38 @@ console.log(cognomeUser);
 
 myList.push(cognomeUser);
 
+//stampo l'array ordinato e la posizione
+
+while (i < myList.length) {
+    myList[i] = myList[i].charAt(0).toUpperCase() + myList[i].slice(1);       // per tutte le prime lettere maiuscole
+    cognomeUser = cognomeUser.charAt(0).toUpperCase() + cognomeUser.slice(1);
+    i++;
+}
+
+myList.sort();
+
 console.log(myList);
 
-//stampo l'array ordinato
+for(i = 0; i < myList.length; i++) { 
 
-for(var i = 0; i < myList.length; i++) {
-    myList.sort();
-    console.log(myList[i]);
     if(cognomeUser == myList[i]) {
         var position = i + 1;
     }
 }
 
-console.log("sei alla posizione:",position);
+console.log("Sei alla posizione:",position);
 
 // Stampo il posto dell'utente
 
 
-
-// Stampo l'array sulla pagina
+// Parte bonus
   
-for (var i = 0; i < myList.length; i++) {
+for (i = 0; i < myList.length; i++) {
     var itemList = document.createElement ("li");
     itemList.innerHTML = myList[i];
     document.getElementById("list").appendChild(itemList);
 }
 
+document.getElementById("userPosition").innerHTML = position;
 
 
