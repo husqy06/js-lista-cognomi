@@ -30,7 +30,16 @@ console.log(myList);
 for(var i = 0; i < myList.length; i++) {
     myList.sort();
     console.log(myList[i]);
+    if(cognomeUser == myList[i]) {
+        var position = i + 1;
+    }
 }
+
+console.log("sei alla posizione:",position);
+
+// Stampo il posto dell'utente
+
+
 
 // Stampo l'array sulla pagina
   
